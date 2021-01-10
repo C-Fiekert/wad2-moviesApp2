@@ -14,21 +14,26 @@ import UpcomingPage from './pages/upcomingPage';
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchLaterPage from './pages/watchLaterPage';
 import TopRatedPage from './pages/topRatedPage';
+import LoginSignUpPage from "./pages/loginSignUp";
 import MoviesContextProvider from "./contexts/moviesContext";
 import ActorsContextProvider from "./contexts/actorsContext";
 import GenresContextProvider from "./contexts/genresContext";
+import AuthContextProvider from "./contexts/authContext";
+
 
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="jumbotron" style={{backgroundColor:"#d20000"}}>
+        <AuthContextProvider>
         <SiteHeader /> 
         <div className="container-fluid" >
           <MoviesContextProvider>
             <ActorsContextProvider>
               <GenresContextProvider>    {/* NEW */}
               <Switch>
+                <Route path="/loginSignUp" component={LoginSignUpPage} />
                 <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                 <Route exact path="/reviews/:id" component={MovieReviewPage} />
                 <Route exact path="/movies/top-rated" component={TopRatedPage} />
@@ -45,6 +50,7 @@ const App = () => {
             </ActorsContextProvider>
           </MoviesContextProvider>
         </div>
+        </AuthContextProvider>
       </div>
     </BrowserRouter>
   );
