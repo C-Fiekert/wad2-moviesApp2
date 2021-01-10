@@ -57,6 +57,11 @@ const SiteHeader = () => {
               Watch Later
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/loginSignUp">
+              Login/Sign-Up
+            </Link>
+          </li>
         </ul>
       </nav>
     </nav>
