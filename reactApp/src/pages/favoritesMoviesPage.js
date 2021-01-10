@@ -1,17 +1,18 @@
 import React, {useContext} from "react";
-import MovieListPageTemplate from "../components/templateMovieListPage";
+import FavoriteWatchListPageTemplate from "../components/templateFavoriteWatchListPage";
 import AddReviewButton from '../components/buttons/addReview'
+import RemoveFavoriteMovieButton from '../components/buttons/removeFavoriteMovie'
 import {MoviesContext} from '../contexts/moviesContext'
-import 'semantic-ui-css/semantic.min.css'
 
 const FavoriteMoviesPage = props => {
   const context = useContext(MoviesContext);
   const favorites = context.movies.filter( m => m.favorite )
   return (
-    <MovieListPageTemplate
+    <FavoriteWatchListPageTemplate
       movies={favorites}
       title={"Favorite Movies"}
-      action={movie => <AddReviewButton movie={movie} />}
+      review={movie => <AddReviewButton movie={movie} />}
+      remove={movie => <RemoveFavoriteMovieButton movie={movie} />}
     />
   );
 };

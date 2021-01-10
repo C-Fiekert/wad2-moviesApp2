@@ -7,6 +7,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "load":
       return { persons: action.payload.persons };
+      // eslint-disable-next-line
       break;
     default:
       return state;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./movieCredits.css";
 import { getMovieCredits } from "../../api/tmdb-api";
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card, Icon, Image, Button} from 'semantic-ui-react'
 
 export default ({ person }) => {
   const [movieCredits, setMovieCredits] = useState([]);
@@ -12,10 +12,11 @@ export default ({ person }) => {
     getMovieCredits(person.id).then(movieCredits => {
       setMovieCredits(movieCredits);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(
-      <div className="row movies bg-info" style={{backgroundColor:"#d20000"}}>
+      <div className="row movies" style={{backgroundColor:"#d20000"}}>
         {movieCredits.map(mc => {
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
@@ -23,7 +24,8 @@ export default ({ person }) => {
     <center>
       <Image
         className="card-img-tag center "
-        alt={"Photo Unavailable"}
+        //alt={"Photo Unavailable"}
+        onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
         src={
           mc.poster_path
             ? `https://image.tmdb.org/t/p/w500/${mc.poster_path}`

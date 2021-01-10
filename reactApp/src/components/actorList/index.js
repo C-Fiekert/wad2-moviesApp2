@@ -6,7 +6,7 @@ const ActorList = ({persons}) => {
   const actorCards = persons.map(p => (
     <Actor key={p.id} person={p} />
   ));
-  return <div className="row movies bg-info" style={{backgroundColor:"#d20000"}}>{actorCards}</div>;
+  return <div className="row movies" style={{backgroundColor:"#d20000"}}>{actorCards}</div>;
 };
 
 export default ActorList;

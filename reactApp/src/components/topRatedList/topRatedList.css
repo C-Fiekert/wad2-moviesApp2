@@ -1,4 +1,10 @@
 .movies {
     padding-top: 10px;
     margin-top: 0px;
+    padding-bottom: 10px;
+}
+
+#row {
+    margin-bottom: 1em;
+    
 }

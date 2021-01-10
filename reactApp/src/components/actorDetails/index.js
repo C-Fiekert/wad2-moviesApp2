@@ -23,10 +23,6 @@ export default ({ person }) => {
             <Table.Cell>{person.known_for_department}</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell active>Gender</Table.Cell>
-            <Table.Cell>{person.gender}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
             <Table.Cell active>Place of Birth</Table.Cell>
             <Table.Cell>{person.place_of_birth}</Table.Cell>
           </Table.Row>

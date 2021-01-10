@@ -15,10 +15,11 @@ export default ({ movie }) => {
     getCredits(movie.id).then(credits => {
       setCredits(credits);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(
-      <div className="row movies bg-info" style={{backgroundColor:"#d20000"}}>
+      <div className="row movies" style={{backgroundColor:"#d20000"}}>
         {credits.map(c => {
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
@@ -27,7 +28,8 @@ export default ({ movie }) => {
     <center>
       <Image
         className="card-img-tag center "
-        alt={"Photo Unavailable"}
+        //alt={"Photo Unavailable"}
+        onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
         src={
           c.profile_path
             ? `https://image.tmdb.org/t/p/w500/${c.profile_path}`

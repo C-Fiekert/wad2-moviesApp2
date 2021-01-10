@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./movieCard.css";
+import "./favoriteWatchCard.css";
 import "../../globals/fontawesome";
 import { Card, Icon, Image } from 'semantic-ui-react';
 
-const MovieCard = ({movie, action}) => {
+const FavoriteWatchCard = ({movie, review, remove}) => {
+  console.log("5");
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
       <Link to={`/movies/${movie.id}`}>
@@ -32,7 +33,8 @@ const MovieCard = ({movie, action}) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          {action(movie)}
+          {review(movie)}
+          {remove(movie)}
         </Card.Content>
       </Card>
       </Link>
@@ -40,4 +42,4 @@ const MovieCard = ({movie, action}) => {
   );
 };
 
-export default MovieCard;
+export default FavoriteWatchCard;

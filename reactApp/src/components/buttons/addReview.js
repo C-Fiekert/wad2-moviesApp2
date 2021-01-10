@@ -20,6 +20,7 @@ const ReviewButton = ({ movie }) => {
         Add a Review
       </Button.Content>
     </Button>
+    <br></br>
     </Link>
   );
 };
