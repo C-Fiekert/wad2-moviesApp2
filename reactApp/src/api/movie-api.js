@@ -26,3 +26,40 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+  export const getTopRated = () => {
+    return fetch(
+      '/api/movies/top-rated',{headers:{
+        'Authorization':window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getUpcomingMovies = () => {
+    return fetch(
+      '/api/movies/upcoming',{headers:{
+        'Authorization':window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getFavourites = username => {
+    return fetch(
+      '/api/users/'+username+'/favourites',{headers:{
+        'Authorization':window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const postFavourite = (username,id) => {
+    return fetch('/api/users/'+username+'/favourites', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({'id': id})
+  }).then(res => res.json())
+  };

@@ -11,7 +11,7 @@ const AddToFavoritesButton = ({ movie }) => {
     context.addToFavorites(movie.id);
   };
   return (
-    <Button class="ui button" animated='vertical' color="red" fluid onClick={handleAddToFavorite}>
+    <Button className="ui button" animated='vertical' color="red" fluid onClick={handleAddToFavorite}>
       <Button.Content hidden><Icon name='angle double right' /></Button.Content>
       <Button.Content visible>
         Add to Favorites

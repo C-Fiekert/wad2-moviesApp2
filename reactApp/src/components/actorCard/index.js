@@ -13,8 +13,6 @@ const ActorCard = ({person}) => {
       <Card>
         <Image
           className="card-img-tag center "
-          alt={person.name}
-          onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
           src={
             person.profile_path
               ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`

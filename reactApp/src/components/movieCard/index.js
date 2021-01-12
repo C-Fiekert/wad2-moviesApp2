@@ -11,8 +11,6 @@ const MovieCard = ({movie, action}) => {
       <Card>
         <Image
           className="card-img-tag center "
-          //alt={movie.title}
-          onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`

@@ -2,15 +2,16 @@ import React from "react";
 import LoginHeader from '../headerLogin'
 import LoginForm from '../loginForm'
 import SignUpForm from '../signUpForm'
-//import "./moviePage.css";
+import "./loginPage.css";
 import { Image } from 'semantic-ui-react'
 
 const TemplateLoginPage = () => {
   return (
     <>
+      <div id='page'>
       <center>
       <LoginHeader />
-      <br></br><br></br><br></br><br></br><br></br>
+      <br></br><br></br><br></br><br></br><br></br><br /><br />
       <div className="row">
         <div className="col-4">
           <LoginForm />
@@ -22,8 +23,10 @@ const TemplateLoginPage = () => {
         <div className="col-4">
           <SignUpForm />
         </div>
-      </div>
+      </div >
       </center>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </div>
     </>
   );
 };

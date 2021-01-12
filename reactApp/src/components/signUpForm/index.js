@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { AuthContext } from '../../contexts/authContext';
 import "./signUpForm.css";
+import { Input, Button, Icon} from 'semantic-ui-react';
 
 const SignUpForm = props => {
     const context = useContext(AuthContext)
@@ -19,21 +20,24 @@ const SignUpForm = props => {
 
   const { from } = props.location.state || { from: { pathname: "/" } };
   if (registered === true) {
-    return <Redirect to="./login" />;
+    return <Redirect to="./loginSignUp" />;
   }
   return (
     <>
-    <input value={userName} placeholder="user name" onChange={e => {
-        setUserName(e.target.value);
-      }}></input><br />
-      <input value={password} type="password" placeholder="password" onChange={e => {
-        setPassword(e.target.value);
-      }}></input><br />
-      <input value={passwordAgain} type="password" placeholder="password again" onChange={e => {
-        setPasswordAgain(e.target.value);
-      }}></input><br />
-      {/* Login web form  */}
-      <button onClick={register}>Register</button>
+    <h2>Sign-Up</h2>
+    <Input value={userName} placeholder="Username" onChange={e => {setUserName(e.target.value); }}></Input>
+    <br /><br />
+    <Input value={password} type="password" placeholder="Password" onChange={e => {setPassword(e.target.value); }}></Input>
+    <br /><br />
+    <Input value={passwordAgain} type="password" placeholder="Confirm Password" onChange={e => {setPasswordAgain(e.target.value);}}></Input>
+    <br /><br />
+    {/* Login web form  */}
+    <Button className="ui button" animated='vertical' color="yellow" onClick={register}>
+      <Button.Content hidden><Icon name='angle double right' /></Button.Content>
+      <Button.Content visible>
+        Sign-Up
+      </Button.Content>
+    </Button>
     </>
   );
 };

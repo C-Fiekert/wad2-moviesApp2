@@ -15,6 +15,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchLaterPage from './pages/watchLaterPage';
 import TopRatedPage from './pages/topRatedPage';
 import LoginSignUpPage from "./pages/loginSignUp";
+import PrivateRoute from './contexts/privateRoute.js'
 import MoviesContextProvider from "./contexts/moviesContext";
 import ActorsContextProvider from "./contexts/actorsContext";
 import GenresContextProvider from "./contexts/genresContext";
@@ -34,14 +35,14 @@ const App = () => {
               <GenresContextProvider>    {/* NEW */}
               <Switch>
                 <Route path="/loginSignUp" component={LoginSignUpPage} />
-                <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
                 <Route exact path="/reviews/:id" component={MovieReviewPage} />
                 <Route exact path="/movies/top-rated" component={TopRatedPage} />
                 <Route exact path="/movies/upcoming" component={UpcomingPage} />
-                <Route exact path="/movies/watchLater" component={WatchLaterPage} />
+                <PrivateRoute exact path="/movies/watchLater" component={WatchLaterPage} />
                 <Route exact path="/actors" component={ActorListPage} />
                 <Route exact path="/actors/:id" component={ActorPage} />
-                <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
                 <Route path="/movies/:id" component={MoviePage} />
                 <Route exact path="/" component={HomePage} />
                 <Redirect from="*" to="/" />
