@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getMovieReviews } from "../../api/tmdb-api";
+import { getMovieReviews } from "../../api/movie-api";
 import { Table, Button, Icon } from "semantic-ui-react";
 import { excerpt } from "../../util";
 

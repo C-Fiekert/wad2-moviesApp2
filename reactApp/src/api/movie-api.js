@@ -27,9 +27,72 @@ export const getMovies = () => {
     ).then(res => res.json());
   };
 
+  export const getMovie = id => {
+    return fetch(
+       '/api/movies/'+id,{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getCredits = id => {
+    return fetch(
+       '/api/movies/'+id+'/credits',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getMovieCredits = id => {
+    return fetch(
+       '/api/actors/'+id+'/credits',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getMovieReviews = id => {
+    return fetch(
+       '/api/movies/'+id+'/reviews',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getGenres = () => {
+    return fetch(
+       '/api/genres',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getActors = () => {
+    return fetch(
+       '/api/actors',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getActor = id => {
+    return fetch(
+       '/api/actors/'+id,{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
   export const getTopRated = () => {
     return fetch(
-      '/api/movies/top-rated',{headers:{
+      '/api/toprated',{headers:{
         'Authorization':window.localStorage.getItem('token')
       }
     }
@@ -38,7 +101,7 @@ export const getMovies = () => {
 
   export const getUpcomingMovies = () => {
     return fetch(
-      '/api/movies/upcoming',{headers:{
+      '/api/upcoming',{headers:{
         'Authorization':window.localStorage.getItem('token')
       }
     }

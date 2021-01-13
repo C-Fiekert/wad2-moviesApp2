@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getActor} from '../api/tmdb-api'
+import {getActor} from '../api/movie-api'
 
 const useActor = id => {
   const [person, setActor] = useState(null);

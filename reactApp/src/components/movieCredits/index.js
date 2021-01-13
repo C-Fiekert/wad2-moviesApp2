@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./movieCredits.css";
-import { getMovieCredits } from "../../api/tmdb-api";
+import { getMovieCredits } from "../../api/movie-api";
 import { Card, Icon, Image, Button} from 'semantic-ui-react'
 
 export default ({ person }) => {

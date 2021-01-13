@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./credits.css";
-import { getCredits } from "../../api/tmdb-api";
+import { getCredits } from "../../api/movie-api";
 import { Card } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import { Image } from 'semantic-ui-react'
