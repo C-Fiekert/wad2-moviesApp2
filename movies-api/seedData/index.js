@@ -12,9 +12,9 @@ import {genres} from './genres.js';
 
 const users = [
   {
-    //'username': 'user1',
-    //'password': 'test1'
-    //'favourites': []
+    'username': 'user1',
+    'password': 'test1',
+    'favourites': [],
   }
   // {
   //   'username': 'user2',

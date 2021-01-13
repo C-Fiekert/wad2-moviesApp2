@@ -10,6 +10,7 @@ import actorsRouter from './api/actors';
 import topratedRouter from './api/toprated';
 import upcomingRouter from './api/upcoming';
 import session from 'express-session';
+import helmet from 'helmet';
 import passport from './authenticate';
 
 
@@ -44,7 +45,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-
+app.use(helmet())
 
 //configure body-parser
 app.use(express.static('public'));
@@ -53,7 +54,6 @@ app.use(bodyParser.urlencoded());
 
 //app.use(passport.initialize());​
 app.use('/api/movies', /*passport.authenticate('jwt', {session: false}), */moviesRouter);
-//app.use('/api/movies', moviesRouter);
 //Users router
 app.use('/api/users', usersRouter);
 //Genres Router
