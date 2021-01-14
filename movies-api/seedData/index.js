@@ -15,17 +15,17 @@ const users = [
     'username': 'user1',
     'password': 'test1',
     'favourites': [],
-  }
-  // {
-  //   'username': 'user2',
-  //   'password': 'test2',
-  //   'favourites': []
-  // },
-  // {
-  //   'username': 'user3',
-  //   'password': 'test3',
-  //   'favourites': []
-  // },
+  },
+  {
+    'username': 'user2',
+    'password': 'test2',
+    'favourites': []
+  },
+  {
+    'username': 'user3',
+    'password': 'test3',
+    'favourites': []
+  },
 ];
 
 // deletes all user documents in collection and inserts test data
