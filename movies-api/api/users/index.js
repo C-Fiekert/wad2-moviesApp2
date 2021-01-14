@@ -58,39 +58,39 @@ router.put('/:id',  (req, res, next) => {
 });
 
 //Add a favourite. No Error Handling Yet. Can add duplicates too!
-router.post('/:userName/favourites', async (req, res, next) => {
-  const newFavourite = req.body.id;
+router.post( '/:userName/favourites', async  (req, res, next ) => {
+  const userFavourite = req.body.id;
   const userName = req.params.userName;
-  const movie = await movieModel.findByMovieDBId(newFavourite);
-  const user = await User.findByUserName(userName);
-  if (!user) return res.status(401).json({ code: 401, msg: 'Authentication failed. User not found' });
-  if(newFavourite == null || movie == null){
-    res.status(401).json({
-      success: false,
-      msg: 'Please provide valid ID' 
+  const movie = await movieModel.findByMovieDBId( userFavourite );
+  const user = await User.findByUserName( userName );
+
+  if ( user == false ) {
+    return res.status( 401 ).json({ code: 401, msg: 'Unable to find User' });
+  }
+  else if( movie == null || userFavourite == null ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'User ID or Movie ID is invalid' 
     })
   }
-  if(user.favourites.includes(movie._id) == true){
-    res.status(401).json({
-      success: false,
-      msg: 'Movie is already in favourites'
+  else if( user.favourites.includes( movie._id ) ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'This movie is already in your favourites'
     })
-  }
-  if (!user.favourites.includes(movie)) {
-    await user.favourites.push(movie._id);
-    await user.save(); 
-    res.status(201).json(user);
   }
   else {
-    console.log("This movie is already in your favourites",{err})
+    await user.favourites.push( movie._id );
+    await user.save(); 
+    res.status( 201 ).json( user );
   }
 });
 
-router.get('/:userName/favourites', (req, res, next) => {
+router.get( '/:userName/favourites', ( req, res, next ) => {
   const userName = req.params.userName;
-  User.findByUserName(userName).populate('favourites').then(
-    user => res.status(201).json(user.favourites)
-  ).catch(next);
+  User.findByUserName( userName ).populate( 'favourites' ).then(
+    user => res.status( 201 ).json( user.favourites )
+  ).catch( next );
 });
 
 export default router;

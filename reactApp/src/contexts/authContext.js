@@ -34,9 +34,9 @@ const AuthContextProvider = (props) => {
     setTimeout(() => setIsAuthenticated(false), 100);
   }
 
-  const getFavouriteMovies = async (username) => {
-    const result = await getFavourites(username);
-    return (result)
+  const getUserFavourites = async (username) => {
+    const movies = await getFavourites(username);
+    return (movies)
   };
 
   return (
@@ -45,7 +45,7 @@ const AuthContextProvider = (props) => {
         isAuthenticated,
         authenticate,
         register,
-        getFavouriteMovies,
+        getUserFavourites,
         signout,
         userName
       }}

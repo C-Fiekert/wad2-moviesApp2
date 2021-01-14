@@ -117,12 +117,12 @@ export const getMovies = () => {
     ).then(res => res.json());
   };
 
-  export const postFavourite = (username,id) => {
-    return fetch('/api/users/'+username+'/favourites', {
+  export const addFavourite = ( username, id ) => {
+    return fetch( '/api/users/' + username + '/favourites', {
       headers: {
           'Content-Type': 'application/json'
       },
       method: 'post',
-      body: JSON.stringify({'id': id})
-  }).then(res => res.json())
+      body: JSON.stringify({ 'id': id })
+  }).then( res => res.json() )
   };
