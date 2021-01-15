@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import {MoviesContext} from "../../contexts/moviesContext";
-import { Button } from 'semantic-ui-react';
-import { Icon } from 'semantic-ui-react';
+import {AuthContext} from "../../contexts/authContext";
+import { Button, Icon } from 'semantic-ui-react';
+import { removeFavourite } from '../../api/movie-api'
 
 const RemoveFavoriteMovieButton = ({ movie }) => {
-  const context = useContext(MoviesContext);
+  const context = useContext(AuthContext);
 
   const handleRemoveFavoriteMovie = e => {
     e.preventDefault();
-    context.removeFavorites(movie.id);
+    removeFavourite( context.userName, movie.id );
   };
   return (
     <Button class="ui button" animated='vertical' color="red" fluid onClick={handleRemoveFavoriteMovie}>

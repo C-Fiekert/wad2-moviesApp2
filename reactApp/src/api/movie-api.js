@@ -126,3 +126,13 @@ export const getMovies = () => {
       body: JSON.stringify({ 'id': id })
   }).then( res => res.json() )
   };
+
+  export const removeFavourite = ( username, id ) => {
+    return fetch( '/api/users/' + username + '/favourites', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'delete',
+      body: JSON.stringify({ 'id': id })
+  }).then( res => res.json() )
+  };

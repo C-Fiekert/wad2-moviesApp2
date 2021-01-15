@@ -5,7 +5,6 @@ import "../../globals/fontawesome";
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 const FavoriteWatchCard = ({movie, review, remove}) => {
-  console.log("5");
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
       <Link to={`/movies/${movie.id}`}>

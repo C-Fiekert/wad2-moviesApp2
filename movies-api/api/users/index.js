@@ -93,4 +93,45 @@ router.get( '/:userName/favourites', ( req, res, next ) => {
   ).catch( next );
 });
 
+router.delete( '/:userName/favourites', async  (req, res, next ) => {
+  const userFavourite = req.body.id;
+  const userName = req.params.userName;
+  const movie = await movieModel.findByMovieDBId( userFavourite );
+  const user = await User.findByUserName( userName );
+
+  if ( user == false ) {
+    return res.status( 401 ).json({ code: 401, msg: 'Unable to find User' });
+  }
+  else if( movie == null || userFavourite == null ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'User ID or Movie ID is invalid' 
+    })
+  }
+  else if( !user.favourites.includes( movie._id ) ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'This movie is is not in your favourites'
+    })
+  }
+  else {
+    //var i = 0;
+    // while (user.favourites[i] != movie._id){
+    //   i++;
+    //   console.log(i);
+    // }
+    await user.favourites.pull({ _id: movie._id});
+
+    // for (let i = 0; i < user.favourites.length; i++) {
+    //   if (user.favourites[i] == movie._id) {
+    //     console.log(i);
+    //     await user.favourites.splice(i,1);
+    //   }      
+    // }
+    // await user.favourites.splice(i,1);
+    await user.save(); 
+    res.status( 201 ).json( user );
+  }
+});
+
 export default router;

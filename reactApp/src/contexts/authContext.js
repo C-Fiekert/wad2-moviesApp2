@@ -36,7 +36,7 @@ const AuthContextProvider = (props) => {
 
   const getUserFavourites = async (username) => {
     const movies = await getFavourites(username);
-    return (movies)
+    return (movies);
   };
 
   return (
