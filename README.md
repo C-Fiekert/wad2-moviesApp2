@@ -19,7 +19,8 @@ https://github.com/C-Fiekert/wad2-moviesApp2
 ```
 
 Next you must unzip the project and open the unzipped folder in your preferred code editor.
-You must ensure that MongoDB is installed before continuing. It can be downloaded at https://www.mongodb.com/try/download/community
+You must ensure that MongoDB is installed before continuing.  
+It can be downloaded at https://www.mongodb.com/try/download/community
 
 In a new terminal in your code editor, navigate to the 'movies-api' directory and run 'npm install'.
 
@@ -70,11 +71,11 @@ API Overview:
 | /api/users/{username}/favourites | Can get the users favourite movies | Can add a new movie to the users favourites | N/A | Can remove a movie from the users favourites  
 | /api/users/{username}/watchLater | Can get the users watch later movies | Can add a new movie to the users watch later | N/A | Can remove a movie from the users watch later  
 
-The design for this API can also view using the following two links. These documents were created using Swagger and OpenAPI:
-API GET and DELETE calls
-https://app.swaggerhub.com/apis-docs/C-Fiekert/GET-AND-DELETE/1.0
-API POST calls
-https://app.swaggerhub.com/apis-docs/C-Fiekert/POST/1.0
+The design for this API can also view using the following two links. These documents were created using Swagger and OpenAPI:  
+API GET and DELETE calls  
+https://app.swaggerhub.com/apis-docs/C-Fiekert/GET-AND-DELETE/1.0  
+API POST calls  
+https://app.swaggerhub.com/apis-docs/C-Fiekert/POST/1.0  
 
 ## Security and Authentication
 User authentication is used alongside Mongoose. User credentials are stored using MongoDB with all passwords being stored as hashes and not plaintext for extra security.
@@ -82,7 +83,7 @@ Users cannot access the favourites page, watch later page, or the review form pa
 
 ## Integrating with React App
 
-The React app in this project has been fully integrated with the API. Every call and request sent to the React app in directed to and handled by the API which we can see from the following link:
+The React app in this project has been fully integrated with the API. Every call and request sent to the React app in directed to and handled by the API which we can see from the following link:  
 https://github.com/C-Fiekert/wad2-moviesApp2/blob/main/reactApp/src/api/movie-api.js
 
 Below, we can see an example of these calls in the React app which fully relies on the API.
