@@ -12,7 +12,7 @@ const reducer = (state, action) => {
         ),
       toprated: [...state.toprated],
       upcoming: [...state.upcoming],
-      favouriteMovies:[...state.favouriteMovies],
+      favoriteMovies:[...state.favoriteMovies],
       watchLMovies:[...state.watchLMovies],
       };
     case "remove-favorite":
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
       ),
       toprated: [...state.toprated],
       upcoming: [...state.upcoming],
-      favouriteMovies:[...state.favouriteMovies],
+      favoriteMovies:[...state.favoriteMovies],
       watchLMovies:[...state.watchLMovies],
     };
     case "watch-list":
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
         ),
         movies: [...state.movies],
         toprated: [...state.toprated],
-        favouriteMovies:[...state.favouriteMovies],
+        favoriteMovies:[...state.favoriteMovies],
         watchLMovies:[...state.watchLMovies],
       };
     case "remove-watch":
@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         ),
         movies: [...state.movies],
         toprated: [...state.toprated],
-        favouriteMovies:[...state.favouriteMovies],
+        favoriteMovies:[...state.favoriteMovies],
         watchLMovies:[...state.watchLMovies],
       };
     case "load":
@@ -66,7 +66,7 @@ const reducer = (state, action) => {
         ),
         upcoming: [...state.upcoming],
         toprated: [...state.toprated],
-        favouriteMovies:[...state.favouriteMovies],
+        favoriteMovies:[...state.favoriteMovies],
         watchLMovies:[...state.watchLMovies],
       };
     default:
