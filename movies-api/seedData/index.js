@@ -1,3 +1,4 @@
+// Imports
 import userModel from '../api/users/userModel';
 import movieModel from '../api/movies/movieModel';
 import actorModel from '../api/actors/actorModel';
@@ -12,19 +13,19 @@ import {genres} from './genres.js';
 
 const users = [
   {
-    'username': 'user1',
-    'password': 'test1',
-    'favourites': [],
-  },
-  {
-    'username': 'user2',
-    'password': 'test2',
-    'favourites': []
-  },
-  {
-    'username': 'user3',
-    'password': 'test3',
-    'favourites': []
+  //   'username': 'user1',
+  //   'password': 'test1',
+  //   'favourites': [],
+  // },
+  // {
+  //   'username': 'user2',
+  //   'password': 'test2',
+  //   'favourites': []
+  // },
+  // {
+  //   'username': 'user3',
+  //   'password': 'test3',
+  //   'favourites': []
   },
 ];
 
