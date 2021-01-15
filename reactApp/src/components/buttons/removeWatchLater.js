@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import {MoviesContext} from "../../contexts/moviesContext";
-import { Button } from 'semantic-ui-react';
-import { Icon } from 'semantic-ui-react';
+import {AuthContext} from "../../contexts/authContext";
+import { Button, Icon } from 'semantic-ui-react';
+import { removeWatchLater} from '../../api/movie-api';
 
 const RemoveWatchListButton = ({ movie }) => {
-  const context = useContext(MoviesContext);
+  const context = useContext(AuthContext);
 
   const handleRemoveWatchList = e => {
     e.preventDefault();
-    context.removeWatch(movie.id);
+    removeWatchLater( context.userName, movie.id );
   };
   return (
     <Button class="ui button" animated='vertical' color="red" fluid onClick={handleRemoveWatchList}>

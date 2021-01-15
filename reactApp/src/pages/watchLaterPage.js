@@ -1,12 +1,20 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import FavoriteWatchListPageTemplate from "../components/templateFavoriteWatchListPage";
-import {MoviesContext} from '../contexts/moviesContext'
+import {AuthContext} from '../contexts/authContext'
 import AddReviewButton from '../components/buttons/addReview'
 import RemoveWatchListButton from '../components/buttons/removeWatchLater'
 
 const WatchLaterPage = props => {
-  const context = useContext(MoviesContext);
-  const watchLater = context.upcoming.filter( u => u.watchL )
+  const context = useContext( AuthContext );
+  const [ watchLater, setWatchLater ] = useState([]);
+
+  if ( context.isAuthenticated ) {
+    var userWatch = async() => {
+      let watchLMovies = await context.getUserWatchLater( context.userName );
+      return watchLMovies;
+    }
+  userWatch().then( userWatchLater => setWatchLater( userWatchLater ) )
+
   return (
     <FavoriteWatchListPageTemplate
       movies={watchLater}
@@ -15,6 +23,7 @@ const WatchLaterPage = props => {
       remove={movie => <RemoveWatchListButton movie={movie} />}
     />
   );
+  };
 };
 
 export default WatchLaterPage;

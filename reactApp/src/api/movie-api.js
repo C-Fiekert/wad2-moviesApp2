@@ -136,3 +136,32 @@ export const getMovies = () => {
       body: JSON.stringify({ 'id': id })
   }).then( res => res.json() )
   };
+
+  export const getWatchLater = username => {
+    return fetch(
+      '/api/users/'+username+'/watchLater',{headers:{
+        'Authorization':window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const addWatchLater = ( username, id ) => {
+    return fetch( '/api/users/' + username + '/watchLater', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({ 'id': id })
+  }).then( res => res.json() )
+  };
+
+  export const removeWatchLater = ( username, id ) => {
+    return fetch( '/api/users/' + username + '/watchLater', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'delete',
+      body: JSON.stringify({ 'id': id })
+  }).then( res => res.json() )
+  };

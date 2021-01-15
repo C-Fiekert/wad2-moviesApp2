@@ -1,6 +1,7 @@
 import express from 'express';
 import User from './userModel';
-import movieModel from '../movies/movieModel.js'
+import movieModel from '../movies/movieModel.js';
+import upcomingModel from '../upcoming/upcomingModel.js';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router(); // eslint-disable-line
@@ -111,24 +112,74 @@ router.delete( '/:userName/favourites', async  (req, res, next ) => {
   else if( !user.favourites.includes( movie._id ) ){
     res.status( 401 ).json({
       code: 401,
-      msg: 'This movie is is not in your favourites'
+      msg: 'This movie is not in your favourites'
     })
   }
   else {
-    //var i = 0;
-    // while (user.favourites[i] != movie._id){
-    //   i++;
-    //   console.log(i);
-    // }
     await user.favourites.pull({ _id: movie._id});
+    await user.save(); 
+    res.status( 201 ).json( user );
+  }
+});
+///////////////////////////////////////////////////////////////////////////////////////////////
+router.post( '/:userName/watchLater', async  (req, res, next ) => {
+  const userWatchLater = req.body.id;
+  const userName = req.params.userName;
+  const movie = await upcomingModel.findByUpcomingDBId( userWatchLater );
+  const user = await User.findByUserName( userName );
 
-    // for (let i = 0; i < user.favourites.length; i++) {
-    //   if (user.favourites[i] == movie._id) {
-    //     console.log(i);
-    //     await user.favourites.splice(i,1);
-    //   }      
-    // }
-    // await user.favourites.splice(i,1);
+  if ( user == false ) {
+    return res.status( 401 ).json({ code: 401, msg: 'Unable to find User' });
+  }
+  else if( movie == null || userWatchLater == null ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'User ID or Movie ID is invalid' 
+    })
+  }
+  else if( user.watchLater.includes( movie._id ) ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'This movie is already in your watch later list'
+    })
+  }
+  else {
+    await user.watchLater.push( movie._id );
+    await user.save(); 
+    res.status( 201 ).json( user );
+  }
+});
+
+router.get( '/:userName/watchLater', ( req, res, next ) => {
+  const userName = req.params.userName;
+  User.findByUserName( userName ).populate( 'watchLater' ).then(
+    user => res.status( 201 ).json( user.watchLater )
+  ).catch( next );
+});
+
+router.delete( '/:userName/watchLater', async  (req, res, next ) => {
+  const userWatchLater = req.body.id;
+  const userName = req.params.userName;
+  const movie = await upcomingModel.findByUpcomingDBId( userWatchLater );
+  const user = await User.findByUserName( userName );
+
+  if ( user == false ) {
+    return res.status( 401 ).json({ code: 401, msg: 'Unable to find User' });
+  }
+  else if( movie == null || userWatchLater == null ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'User ID or Movie ID is invalid' 
+    })
+  }
+  else if( !user.watchLater.includes( movie._id ) ){
+    res.status( 401 ).json({
+      code: 401,
+      msg: 'This movie is not in your watch later list'
+    })
+  }
+  else {
+    await user.watchLater.pull({ _id: movie._id});
     await user.save(); 
     res.status( 201 ).json( user );
   }
