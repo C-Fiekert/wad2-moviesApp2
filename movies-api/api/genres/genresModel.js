@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 const GenresSchema = new Schema({
     name: [{ type: String }],
     id: { type: Number, required: true, unique: true },
-    
 });
 
 GenresSchema.statics.findByGenreDBId = function (id) {

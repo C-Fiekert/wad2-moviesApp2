@@ -3,7 +3,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import { AuthContext } from "../../contexts/authContext";
 import { addFavourite } from '../../api/movie-api'
 
-const AddToFavoritesButton = ({ movie }) => {
+const AddToFavoritesButton = ({ movie}) => {
   const context = useContext( AuthContext );
 
   const handleAddToFavorite = e => {

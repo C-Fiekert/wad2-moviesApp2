@@ -1,0 +1,367 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API GET-AND-DELETE",
+    "description" : "The GET and DELETE calls for the Movie API",
+    "version" : "1.0",
+    "contact" : {
+      "email" : "fiekertc@gmail.com",
+      "name" : "Callum Fiekert"
+    }
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080"
+  } ],
+  "paths" : {
+    "/api/movies/475557" : {
+      "get" : {
+        "description" : "Gets the details for the movie specified",
+        "responses" : {
+          "200" : {
+            "description" : "Movie details obtained successfully",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/actors/500" : {
+      "get" : {
+        "description" : "Gets the details for the actor specified",
+        "responses" : {
+          "200" : {
+            "description" : "Actor details obtained successfully",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/movies/475557/reviews" : {
+      "get" : {
+        "description" : "Gets the reviews for the movie specified",
+        "responses" : {
+          "200" : {
+            "description" : "Movie reviews obtained successfully"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/movies/475557/credits" : {
+      "get" : {
+        "description" : "Gets the cast for the movie specified",
+        "responses" : {
+          "200" : {
+            "description" : "Movie cast successfully obtained"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/users" : {
+      "get" : {
+        "description" : "Gets a list of the app users",
+        "responses" : {
+          "200" : {
+            "description" : "App users successfully obtained",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/movies" : {
+      "get" : {
+        "description" : "Gets a list of the homepage movies",
+        "responses" : {
+          "200" : {
+            "description" : "Homepage movies successfully obtained"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/genres" : {
+      "get" : {
+        "description" : "Gets a list of all movies genres",
+        "responses" : {
+          "200" : {
+            "description" : "Movie genres obtained successfully",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/actors" : {
+      "get" : {
+        "description" : "Gets a list of the most popular actors",
+        "responses" : {
+          "200" : {
+            "description" : "Most popular actors obtained successfully"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/actors/500/credits" : {
+      "get" : {
+        "description" : "Gets the featured movies for a specified actor",
+        "responses" : {
+          "200" : {
+            "description" : "Featured movies obtained successfully"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/toprated" : {
+      "get" : {
+        "description" : "Gets a list of the top rated movies",
+        "responses" : {
+          "200" : {
+            "description" : "Top rated movies obtained successfully"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/users/user1/watchLater" : {
+      "get" : {
+        "description" : "Gets user1's watch later list",
+        "responses" : {
+          "201" : {
+            "description" : "watch later list obtained successfully",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "delete" : {
+        "description" : "Delete movie from user1's watch later list",
+        "responses" : {
+          "201" : {
+            "description" : "Movie successully deleted",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/upcoming" : {
+      "get" : {
+        "description" : "Gets a list of upcoming movies",
+        "responses" : {
+          "200" : {
+            "description" : "Upcoming movies obtained successfully"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/api/users/user1/favourites" : {
+      "get" : {
+        "description" : "Gets the favourite movies for user1",
+        "responses" : {
+          "201" : {
+            "description" : "Favourite movies obtained successfully",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "delete" : {
+        "description" : "Delete movie from user1's favourites",
+        "responses" : {
+          "201" : {
+            "description" : "Movie successfully deleted",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    }
+  },
+  "components" : {
+    "securitySchemes" : {
+      "oauth2" : {
+        "type" : "oauth2",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "http://yourauthurl.com",
+            "scopes" : {
+              "scope_name" : "N/A"
+            }
+          }
+        }
+      }
+    },
+    "schemas" : {
+      "MovieSchema" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        },
+        "description" : "adult: { type: Boolean },\n  id: { type: Number, required: true, unique: true },\n  poster_path: { type: String },\n  overview: { type: String },\n  release_date: { type: String },\n  original_title: { type: String },\n  genre_ids: [{ type: Number }],\n  original_language: { type: String },\n  title: { type: String },\n  backdrop_path: { type: String },\n  popularity: { type: Number },\n  vote_count: { type: Number },\n  video: { type: Boolean },\n  vote_average: { type: Number },\n  production_countries: [{\n    iso_3166_1: { type: String },\n    name: { type: String }\n  }],\n  runtime: { type: Number },\n  spoken_languages: [{\n    iso_639_1: { type: String },\n    name: { type: String }\n  }],\n  status: { type: String },\n  tagline: { type: String }"
+      },
+      "GenresSchema" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        },
+        "description" : "name: [{ type: String }],\n    id: { type: Number, required: true, unique: true },"
+      },
+      "ActorSchema" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        },
+        "description" : "birthday: { type: String },\n  known_for_department: { type: String },\n  deathday: { type: String },\n  id: { type: Number, required: true, unique: true },\n  name: { type: String },\n  also_known_as: [{ type: Boolean }],\n  gender: { type: Number },\n  biography: { type: String },\n  popularity: { type: Number },\n  place_of_birth: { type: String },\n  profile_path: { type: String },\n  adult: { type: Boolean },\n  imdb_id: { type: String },\n  homepage: { type: String }"
+      },
+      "UserSchema" : {
+        "description" : "username: { type: String, unique: true, required: true},\n  password: { type: String, required: true },\n  favourites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}],\n  watchLater: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Upcoming'}]"
+      },
+      "TopRatedSchema" : {
+        "description" : "adult: { type: Boolean },\n    backdrop_path: { type: String },\n    genre_ids: [{ type: Number }],\n    id: { type: Number, required: true, unique: true },\n    original_language: { type: String },\n    original_title: { type: String },\n    overview: { type: String },\n    popularity: { type: Number },\n    poster_path: { type: String },\n    release_date: { type: String },\n    title: { type: String },\n    video: { type: Boolean },\n    vote_average: { type: Number },\n    vote_count: { type: Number }"
+      },
+      "UpcomingSchema" : {
+        "description" : "poster_path: { type: String },\n    adult: { type: Boolean },\n    overview: { type: String },\n    release_date: { type: String },\n    genre_ids: [{ type: Number }],\n    id: { type: Number, required: true, unique: true },\n    original_title: { type: String },\n    original_language: { type: String },\n    title: { type: String },\n    backdrop_path: { type: String },\n    popularity: { type: Number },\n    vote_count: { type: Number },\n    video: { type: Boolean },\n    vote_average: { type: Number }"
+      }
+    }
+  }
+}
