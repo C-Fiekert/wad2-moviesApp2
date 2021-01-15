@@ -60,14 +60,11 @@ API Overview:
 | /api/movies/{movieid} | Get a specific movie | N/A | N/A | N/A
 | /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for movie | N/A | N/A 
 | /api/movies/{movieid}/credits | Get the cast for a movie | N/A | N/A | N/A 
-
 | /api/actors | Get the most popular actors | N/A | N/A | N/A  
 | /api/actors/{actorid} | Get a specific actor | N/A | N/A | N/A  
 | /api/actors/{actorid}/credits | Get an actor's featured movies | N/A | N/A | N/A 
-
 | /api/toprated | Get all top rated movies | N/A | N/A | N/A  
 | /api/upcoming | Get all upcoming movies | N/A | N/A | N/A  
-
 | /api/users | N/A | Can log into an account with the correct username and password | N/A | N/A  
 | /api/users?action=register | N/A | Can create a new user with a username and password | N/A | N/A  
 | /api/users/{username}/favourites | Can get the users favourite movies | Can add a new movie to the users favourites | N/A | Can remove a movie from the users favourites  
